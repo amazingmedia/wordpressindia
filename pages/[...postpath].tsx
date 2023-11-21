@@ -66,15 +66,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 interface PostProps {
 	post: any;
-	host: string;
-	path: string;
+	host: any;
+	path: any;
 }
 
 const Post: React.FC<PostProps> = (props) => {
 	const { post, host, path } = props;
 
 	// to remove tags from excerpt
-	const removeTags = (str: string) => {
+	const removeTags = (str: any) => {
 		if (str === null || str === '') return '';
 		else str = str.toString();
 		return str.replace(/(<([^>]+)>)/gi, '').replace(/\[[^\]]*\]/, '');
