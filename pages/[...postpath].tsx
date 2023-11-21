@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const endpoint = "https://ahkalex.com/graphql";
 	const graphQLClient = new GraphQLClient(endpoint);
 	const referringURL = ctx.req.headers?.referer || null;
-	const pathArr = ctx.query.postpath as Array<string>;
+	const pathArr = ctx.query.postpath as Array<any>;
 	const path = pathArr.join('/');
 	console.log(path);
 	const fbclid = ctx.query.fbclid;
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 			redirect: {
 				permanent: false,
 				destination: `${
-					`https://ahkalex.com/` + encodeURI(path as string)
+					`https://ahkalex.com/` + encodeURI(path as any)
 				}`,
 			},
 		};
